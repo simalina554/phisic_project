@@ -27,16 +27,18 @@ namespace praktika1
         private void button1_Click(object sender, EventArgs e)
         {
             double R1 = double.Parse(textBox1.Text);
-            double R2 = double.Parse(textBox2.Text);
-            double E = double.Parse(textBox3.Text);
+            double R2 = double.Parse(textBox3.Text);
+            double E = double.Parse(textBox2.Text);
             double r = double.Parse(textBox4.Text);
 
-            double I = E / (R1 + R2 + r);
-            double U1 = I * (R1 + R2);
+            double q = R1 + R2;
+
+            double I = E / (q + r);
+            double U1 = I * q;
             double U2 = I * r;
             double U = U1 + U2;
             double P1 = E * I;
-            double P2 = Math.Pow(I, 2) * r + Math.Pow(I, 2) * R1 + Math.Pow(I, 2) * R2;
+            double P2 = Math.Pow(I, 2) * (r + R1 + R2);
 
             textBox5.Text = I.ToString("F3");
             textBox6.Text = U1.ToString("F3");
